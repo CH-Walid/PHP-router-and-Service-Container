@@ -10,7 +10,7 @@ class Database {
     $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   }
 
-  public function query($query, $params) {
+  public function query($query, $params = []) {
     $stmt = $this->connection->prepare($query);
     $stmt->execute($params);
     return $stmt;
