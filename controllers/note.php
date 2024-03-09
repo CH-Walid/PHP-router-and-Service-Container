@@ -9,7 +9,15 @@ $config = require 'config.php';
 $pdo = new Database($config['database']);
 
 $note = $pdo
-        ->query('SELECT * FROM notes WHERE user_id = :user_id AND id = :id', ['user_id' => $user_id, 'id' => $note_id])
+        ->query('SELECT * FROM notes WHERE id = :id', ['id' => $note_id])
         ->fetch();
+
+if(!$note) {
+  abort();
+}
+
+if($note['user_id'] !== $user_id) {
+  abort(Response::FORBIDDEN);
+}
 
 require 'views/note.view.php';
