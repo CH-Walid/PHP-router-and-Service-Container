@@ -11,12 +11,8 @@ $pdo = new Database($config['database']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $errors = [];
 
-  if(strlen(trim($_POST['body'])) === 0) {
-    $errors['body'] = 'A body is required!';
-  }
-
-  if(strlen(trim($_POST['body'])) > 255) {
-    $errors['body'] = 'The body can not be more than 255 characters!';
+  if(! Validator::string($_POST['body'], 5, 255)) {
+    $errors['body'] = 'A body more than 255 characters is required!';
   }
 
   if(empty($errors)) {
