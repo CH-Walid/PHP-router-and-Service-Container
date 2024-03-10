@@ -17,9 +17,19 @@ require 'partials/banner.php';
             <div class="col-span-full">
               <label for="body" class="block text-sm font-medium leading-6 text-gray-900">Note</label>
               <div class="mt-2">
-                <textarea id="body" name="body" rows="3" class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                <textarea id="body" 
+                name="body" 
+                rows="3" 
+                class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required><?= $_POST['body'] ?? ''; ?></textarea>
               </div>
-              <p class="mt-3 text-sm leading-6 text-gray-600">Write the body of your note.</p>
+              <p class="my-3 text-sm leading-6 text-gray-600">Write the body of your note.</p>
+
+              <?php if (isset($errors['body'])) : ?>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                  <strong class="font-bold">Holy smokes!</strong>
+                  <span class="block sm:inline"><?= $errors['body'] ?></span>
+                </div>
+              <?php endif; ?>
             </div>
 
           </div>
