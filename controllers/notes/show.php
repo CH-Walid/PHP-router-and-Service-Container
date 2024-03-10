@@ -12,4 +12,4 @@ $note = $pdo->query('SELECT * FROM notes WHERE id = :note_id', ['note_id' => $no
 
 authorize($note['user_id'] === $user_id, Response::NOT_FOUND);
   
-require 'views/note.view.php';
+require 'views/notes/show.view.php';
