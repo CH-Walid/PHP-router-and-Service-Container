@@ -10,7 +10,7 @@ require 'partials/banner.php';
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <a href="/notes" class="text-blue-700 underline">Go Back</a>
     <div class="mt-4">
-      <p><b>Body:</b> <?= $note['body'] ?></p>
+      <p><b>Body:</b> <?= htmlspecialchars($note['body']) ?></p>
     </div>
   </div>
 </main>
