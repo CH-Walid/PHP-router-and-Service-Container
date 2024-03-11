@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Validator;
+
 $user_id = 1;
 $errors = [];
 

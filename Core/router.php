@@ -10,7 +10,7 @@ function abort($code = 404) {
 
 function routeToController($URI, $routes) {
   if(array_key_exists($URI, $routes)) {
-    require $routes[$URI];
+    require base_path($routes[$URI]);
   } else {
     abort();
   }

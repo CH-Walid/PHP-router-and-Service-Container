@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Response;
+
 $user_id = 1;
 $note_id = $_GET['id'];
 
