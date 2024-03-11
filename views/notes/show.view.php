@@ -1,8 +1,8 @@
 <?php
 
-require 'views/partials/head.php';
-require 'views/partials/nav.php';
-require 'views/partials/banner.php';
+require base_path('views/partials/head.php');
+require base_path('views/partials/nav.php');
+require base_path('views/partials/banner.php');
 
 ?>
 
@@ -16,4 +16,4 @@ require 'views/partials/banner.php';
 </main>
 
 <?php
-require 'views/partials/foot.php';
+require base_path('views/partials/foot.php');

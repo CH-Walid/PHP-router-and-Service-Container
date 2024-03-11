@@ -1,8 +1,8 @@
 <?php
 
-require 'views/partials/head.php';
-require 'views/partials/nav.php';
-require 'views/partials/banner.php';
+require base_path('views/partials/head.php');
+require base_path('views/partials/nav.php');
+require base_path('views/partials/banner.php');
 
 ?>
 
@@ -20,7 +20,7 @@ require 'views/partials/banner.php';
                 <textarea id="body" 
                 name="body" 
                 rows="3" 
-                class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required><?= $_POST['body'] ?? ''; ?></textarea>
+                class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"><?= $_POST['body'] ?? ''; ?></textarea>
               </div>
               <p class="my-3 text-sm leading-6 text-gray-600">Write the body of your note.</p>
 
@@ -46,4 +46,4 @@ require 'views/partials/banner.php';
 </main>
 
 <?php
-require 'views/partials/foot.php';
+require base_path('views/partials/foot.php');

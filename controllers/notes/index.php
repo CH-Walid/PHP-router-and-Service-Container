@@ -1,10 +1,10 @@
 <?php
 
-$heading = 'My Notes';
+$user_id = 1;
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 $pdo = new Database($config['database']);
 
-$notes = $pdo->query('SELECT * FROM notes WHERE user_id = 1;')->get();
+$notes = $pdo->query('SELECT * FROM notes WHERE user_id = :user_id;', ['user_id' => $user_id])->get();
 
-require 'views/notes/index.view.php';
+require view('notes/index.view.php', ['heading' => "My notes", 'notes' => $notes]);
