@@ -12,6 +12,10 @@ require base_path('views/partials/banner.php');
     <div class="mt-4">
       <p><b>Body:</b> <?= htmlspecialchars($note['body']) ?></p>
     </div>
+    <form method="POST" class="mt-6">
+      <input type="hidden" name="id" value="<?= htmlspecialchars($note['id']) ?>">
+      <button type="submit" class="text-sm text-red-500">Delete</button>
+    </form>
   </div>
 </main>
 
