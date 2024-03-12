@@ -1,13 +1,13 @@
 <?php
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
 $user_id = 1;
 $errors = [];
 
-$config = require base_path('config.php');
-$pdo = new Database($config['database']);
+$pdo = App::resolve(Database::class);
 
 if(! Validator::string($_POST['body'], 5, 255)) {
   $errors['body'] = 'A body more than 255 characters is required!';
