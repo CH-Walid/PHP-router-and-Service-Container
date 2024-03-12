@@ -12,7 +12,7 @@ $pdo = new Database($config['database']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $note = $pdo->query('SELECT * FROM notes WHERE id = :note_id', ['note_id' => $_POST['id']])->findOrFail($_POST['id']);
   
-  authorize($note['user_id'] === $user_id, Response::NOT_FOUND);
+  authorize($note['user_id'] === $user_id, Response::FORBIDDEN);
 
   $pdo->query('DELETE FROM notes WHERE id = :id', ['id' => $_POST['id']]);
 
@@ -20,11 +20,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 } else {
   
-  
-  
   $note = $pdo->query('SELECT * FROM notes WHERE id = :note_id', ['note_id' => $note_id])->findOrFail($note_id);
   
-  authorize($note['user_id'] === $user_id, Response::NOT_FOUND);
+  authorize($note['user_id'] === $user_id, Response::FORBIDDEN);
     
   require view('notes/show.view.php', ['heading' => 'My Note', 'note' => $note]);
 }

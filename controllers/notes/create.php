@@ -22,7 +22,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       'body' => $_POST['body'],
       'user_id' => $user_id,
     ]);
-    header('Location: /notes');
+
+    header('location: /notes');
   }
 }
 
