@@ -5,7 +5,7 @@ use Core\Database;
 use Core\Response;
 
 $user_id = 1;
-$note_id = $_GET['id'];
+$note_id = $_GET['id'] ?? false;
 
 $pdo = App::resolve(Database::class);
 
